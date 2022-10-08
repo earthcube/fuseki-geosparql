@@ -118,12 +118,13 @@ RUN mkdir -p "${FUSEKI_BASE}/databases" \
 WORKDIR "${FUSEKI_HOME}"
 COPY config/log4j2.properties config/shiro.ini entrypoint.sh ./
 COPY config/config.ttl "${FUSEKI_BASE}"
+COPY config/earthcube.ttl "${FUSEKI_BASE}/configuration"
 RUN chmod +x entrypoint.sh
 
 # default environment variables
 ENV \
   JAVA_HOME="${JAVA_MINIMAL}" \
-  JAVA_OPTIONS="-Xmx2048m -Xms2048m" \
+  JAVA_OPTIONS="-Xmx8192m -Xms2048m" \
   JENA_VERSION="${JENA_VERSION}" \
   FUSEKI_HOME="${FUSEKI_HOME}" \
   FUSEKI_BASE="${FUSEKI_BASE}" \
