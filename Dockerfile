@@ -46,6 +46,7 @@ RUN mvn package -Dmaven.javadoc.skip=true -DskipTests
 
 RUN unzip "/build/jena/jena-fuseki2/apache-jena-fuseki/target/apache-jena-fuseki-${JENA_VERSION}.zip" \
   && mkdir -p "${FUSEKI_HOME}" \
+    && mkdir -p "${FUSEKI_HOME}/configuration" \
   && cd "apache-jena-fuseki-${JENA_VERSION}" \
   && find ./ -maxdepth 1 -mindepth 1 -exec mv -t "${FUSEKI_HOME}" {} + \
   && cd .. \
