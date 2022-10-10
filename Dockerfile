@@ -118,8 +118,8 @@ RUN mkdir -p "${FUSEKI_BASE}/databases" \
 
 WORKDIR "${FUSEKI_HOME}"
 COPY config/log4j2.properties config/shiro.ini entrypoint.sh ./
-COPY config/config.ttl "${FUSEKI_BASE}"
-COPY config/earthcube.ttl "${FUSEKI_BASE}/config"
+COPY config/config.ttl config/shiro.ini "${FUSEKI_BASE}"
+COPY config/earthcube.ttl config/assembler.ttl "${FUSEKI_BASE}/configuration/earthcube.ttl"
 RUN chmod +x entrypoint.sh
 
 # default environment variables
